@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SolidTicketAPI.Dtos;
+using SolidTicketAPI.Dtos.Employee;
 using SolidTicketAPI.Entities;
 using SolidTicketAPI.Service;
 
@@ -12,11 +13,15 @@ namespace SolidTicketAPI.Controllers
   public class EmployeesController : ControllerBase
   {
     // Instance alma işlemini program.cs dosyasındaki application bırakıyoruz.
-    private readonly IMediator mediator;
+    private readonly IMediator mediator; 
+    private readonly EmployeeAssignTicketService employeeAssignTicketService;
 
-    public EmployeesController(IMediator mediator)
+    // Ioc Tanıtılan servisleride Constructor üzerinden ilgili class enjecte ediyoruz.
+    // Dependency Injection diyoruz
+    public EmployeesController(IMediator mediator, EmployeeAssignTicketService employeeAssignTicketService)
     {
       this.mediator = mediator;
+      this.employeeAssignTicketService = employeeAssignTicketService;
       // this.mediator = new Mediator()
     }
 
@@ -41,21 +46,22 @@ namespace SolidTicketAPI.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create(EmployeeDto request)
+    public IActionResult Create(CreateEmployeeDto request)
     {
 
-      var employeeService = new EmployeeService(mediator);
+      var employeeService = new EmployeeCreateService();
       employeeService.Create(request);
 
       return Ok();
     }
 
     [HttpPost("assignTask")]
-    public IActionResult AssignTicketRequest(EmployeeTicketDo request)
+    public IActionResult AssignTicketRequest(AssignTicketEmployeeDto request)
     {
 
-      var employeeService = new EmployeeService(mediator);
-      employeeService.AssignTicket(request);
+      //var employeeService = new EmployeeAssignTicketService(mediator,);
+      // instance almak ile uğralmamak için uygulama ne kadar servis instance alınacak ise Program dosyasına tanımı yapıyoruz.
+      employeeAssignTicketService.Assign(request);
 
       return Ok();
     }

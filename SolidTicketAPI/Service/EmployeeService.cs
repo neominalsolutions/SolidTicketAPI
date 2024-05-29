@@ -8,8 +8,8 @@ namespace SolidTicketAPI.Service
   // Çalışan ile ilgi hizmetleri üstlen sınıf
   public class EmployeeService
   {
-
-    private EmployeeRepo employeeRepo = new EmployeeRepo();
+    // 1.referans
+    private EFEmployeeRepo employeeRepo = new EFEmployeeRepo();
     private TicketRepo ticketRepo = new TicketRepo();
     private IMediator mediator;
 

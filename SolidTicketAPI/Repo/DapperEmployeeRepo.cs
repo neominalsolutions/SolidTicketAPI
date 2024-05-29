@@ -2,7 +2,7 @@
 
 namespace SolidTicketAPI.Repo
 {
-  public class EmployeeRepo
+  public class DapperEmployeeRepo
   {
     public Employee GetEmployeeById(Guid Id)
     {
