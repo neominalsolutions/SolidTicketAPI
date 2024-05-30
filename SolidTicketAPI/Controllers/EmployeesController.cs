@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SolidTicketAPI.Dtos;
 using SolidTicketAPI.Dtos.Employee;
 using SolidTicketAPI.Entities;
-using SolidTicketAPI.Service;
+using SolidTicketAPI.Services;
 
 namespace SolidTicketAPI.Controllers
 {

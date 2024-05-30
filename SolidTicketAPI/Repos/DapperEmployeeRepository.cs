@@ -1,8 +1,9 @@
 ﻿using SolidTicketAPI.Entities;
+using System.Linq.Expressions;
 
-namespace SolidTicketAPI.Repo
+namespace SolidTicketAPI.Repos
 {
-  public class EFEmployeeRepository : IRepo<Employee>
+  public class DapperEmployeeRepository : IRepo<Employee>
   {
     public void Delete(Employee Id)
     {
@@ -11,7 +12,7 @@ namespace SolidTicketAPI.Repo
 
     public Employee GetById(Guid Id)
     {
-      Console.WriteLine("EF Repo");
+      Console.WriteLine("Dapper Repo");
       return Employee.Create("Ali", "Can");
     }
 
@@ -21,6 +22,11 @@ namespace SolidTicketAPI.Repo
     }
 
     public void Update(Employee employee)
+    {
+      throw new NotImplementedException();
+    }
+
+    public IEnumerable<Employee> Where(Expression<Func<Employee, bool>> predicate)
     {
       throw new NotImplementedException();
     }

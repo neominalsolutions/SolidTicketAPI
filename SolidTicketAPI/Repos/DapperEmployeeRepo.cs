@@ -1,6 +1,6 @@
 ﻿using SolidTicketAPI.Entities;
 
-namespace SolidTicketAPI.Repo
+namespace SolidTicketAPI.Repos
 {
   public class DapperEmployeeRepo
   {

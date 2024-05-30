@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidTicketAPI", "SolidTicketAPI\SolidTicketAPI.csproj", "{A9D56CEF-585C-41FF-9CC4-2464E14C459A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolidTicketAPI", "SolidTicketAPI\SolidTicketAPI.csproj", "{A9D56CEF-585C-41FF-9CC4-2464E14C459A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2D657994-1215-4DA9-9B57-2DF825130B49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A9D56CEF-585C-41FF-9CC4-2464E14C459A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9D56CEF-585C-41FF-9CC4-2464E14C459A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9D56CEF-585C-41FF-9CC4-2464E14C459A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D657994-1215-4DA9-9B57-2DF825130B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D657994-1215-4DA9-9B57-2DF825130B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D657994-1215-4DA9-9B57-2DF825130B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D657994-1215-4DA9-9B57-2DF825130B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

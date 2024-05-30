@@ -1,8 +1,8 @@
 ﻿using SolidTicketAPI.Dtos;
 using SolidTicketAPI.Dtos.Employee;
-using SolidTicketAPI.Repo;
+using SolidTicketAPI.Repos;
 
-namespace SolidTicketAPI.Service
+namespace SolidTicketAPI.Services
 {
   // SRP ile her bir operasyon ve her bir request ,için bir sınıf açıyoruz
   // Employee Entity => CreateEmployeeDto, UpdateEmployeeDto, AssingTicketEmployeeDto

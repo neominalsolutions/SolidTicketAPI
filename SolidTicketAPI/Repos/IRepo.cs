@@ -1,6 +1,7 @@
 ﻿using SolidTicketAPI.Entities;
+using System.Linq.Expressions;
 
-namespace SolidTicketAPI.Repo
+namespace SolidTicketAPI.Repos
 {
   public interface IRepo<TEntity>
   {
@@ -8,6 +9,8 @@ namespace SolidTicketAPI.Repo
 
 
     public void Insert(TEntity employee);
+
+    public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
 
 
     public void Update(TEntity employee);

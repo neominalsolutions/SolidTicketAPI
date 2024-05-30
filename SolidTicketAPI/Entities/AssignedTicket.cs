@@ -23,7 +23,7 @@
     private Ticket Ticket { get; set; } // field Law of Demeter ile nesne üzerinden diğer nesnelere geçiş olmaması için engelledik. Geçiş yapılan propertylere Navigation Property
 
     public int PlanningHour { get; init; } // Planlanan saat
-    public DateTime AssignedAt { get; init; }
+    public DateTime AssignedAt { get; private set; }
 
     AssignedTicket(Guid employeeId, Ticket ticket, int planningHour)
     {
@@ -36,6 +36,11 @@
     public static AssignedTicket Create(Guid employeeId,Ticket ticket,int planningHour)
     {
       return new AssignedTicket(employeeId, ticket, planningHour);
+    }
+
+    public void SetAssignedAt(DateTime date)
+    {
+      AssignedAt = date;
     }
   }
 }

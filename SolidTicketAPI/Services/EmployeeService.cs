@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using SolidTicketAPI.Dtos;
 using SolidTicketAPI.Entities;
-using SolidTicketAPI.Repo;
+using SolidTicketAPI.Repos;
 
-namespace SolidTicketAPI.Service
+namespace SolidTicketAPI.Services
 {
   // Çalışan ile ilgi hizmetleri üstlen sınıf
   public class EmployeeService

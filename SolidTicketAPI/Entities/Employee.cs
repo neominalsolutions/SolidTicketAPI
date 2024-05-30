@@ -51,24 +51,24 @@ namespace SolidTicketAPI.Entities
     public void AssignTicket(Ticket ticket, int planningHour, int assigmentType)
     {
 
-      // Günlük bir görev atamasımı yoksa haftalık mı yoksa aylık mı
-      // Hangi Solid Prensip daha uygun ?
-      if(assigmentType == 100)
-      {
-        // Daily
-        // throw new TicketAssigmentException("Günlük en falza 6 saati geçemez");
-      }
-      else if(assigmentType == 200)
-      {
-        // Weekly
-        // throw new TicketAssigmentException("Haftalık en falza 30 saati geçemez");
-      }
-      else if(assigmentType == 300)
-      {
-        // Monthly
+      //// Günlük bir görev atamasımı yoksa haftalık mı yoksa aylık mı
+      //// Hangi Solid Prensip daha uygun ?
+      //if(assigmentType == 100)
+      //{
+      //  // Daily
+      //  // throw new TicketAssigmentException("Günlük en falza 6 saati geçemez");
+      //}
+      //else if(assigmentType == 200)
+      //{
+      //  // Weekly
+      //  // throw new TicketAssigmentException("Haftalık en falza 30 saati geçemez");
+      //}
+      //else if(assigmentType == 300)
+      //{
+      //  // Monthly
 
-        // throw new TicketAssigmentException("Aylık en falza 150 saati geçemez");
-      }
+      //  // throw new TicketAssigmentException("Aylık en falza 150 saati geçemez");
+      //}
 
 
       assignedTickets.Add(AssignedTicket.Create(Id, ticket, planningHour));

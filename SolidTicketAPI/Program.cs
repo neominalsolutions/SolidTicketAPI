@@ -1,6 +1,7 @@
 using SolidTicketAPI.Entities;
-using SolidTicketAPI.Repo;
-using SolidTicketAPI.Service;
+using SolidTicketAPI.Repos;
+using SolidTicketAPI.Services;
+using SolidTicketAPI.Services.TicketAssigment;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +15,10 @@ builder.Services.AddSwaggerGen();
 
 // IOC ile uygulamada IRepo gördüðüm her yeri  EFEmployeeRepository olarak oluþtur. 
 
-builder.Services.AddScoped<IRepo<Employee>, DapperEmployeeRepository>();
+builder.Services.AddScoped<IRepo<Employee>, EFEmployeeRepository>();
+builder.Services.AddScoped<IRepo<AssignedTicket>, EFAssignedTicketRepository>();
 builder.Services.AddScoped<EmployeeAssignTicketService>();
+builder.Services.AddScoped<TicketAssigmentManager>();
 
 // Mediator Paketi ile çalýþýrken bunu servis olarak NET CORE IOC tanýmamýz register etmemiz lazým
 // Mediator ile tanýmlanmýþ tüm bileþenleri Reflection ile Load et.

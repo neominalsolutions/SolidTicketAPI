@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  solidticketapi:
+    image: ${DOCKER_REGISTRY-}solidticketapi
+    build:
+      context: .
+      dockerfile: SolidTicketAPI/Dockerfile
