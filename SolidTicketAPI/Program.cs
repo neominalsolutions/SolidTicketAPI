@@ -1,7 +1,7 @@
-using SolidTicketAPI.Entities;
-using SolidTicketAPI.Repos;
-using SolidTicketAPI.Services;
-using SolidTicketAPI.Services.TicketAssigment;
+using ApplicationLayer;
+using DomainLayer;
+using DomainLayer.Repositories;
+using InfrastrastureLayer;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,8 +15,9 @@ builder.Services.AddSwaggerGen();
 
 // IOC ile uygulamada IRepo gördüðüm her yeri  EFEmployeeRepository olarak oluþtur. 
 
-builder.Services.AddScoped<IRepo<Employee>, EFEmployeeRepository>();
-builder.Services.AddScoped<IRepo<AssignedTicket>, EFAssignedTicketRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EFEmployeeRepository>();
+builder.Services.AddScoped<IAssignedTicketRepository, EFAssignedTicketRepository>();
+builder.Services.AddScoped<ITicketRepository, TicketRepo>();
 builder.Services.AddScoped<EmployeeAssignTicketService>();
 builder.Services.AddScoped<TicketAssigmentManager>();
 
@@ -25,7 +26,9 @@ builder.Services.AddScoped<TicketAssigmentManager>();
 // Uygulama Meditor ile ilgili ne kadar nesne varsa baðýmlýk olarak ekle.
 builder.Services.AddMediatR(config =>
 {
-  config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+  //config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+  // Katmanlara ayýrdýðýmýzdan Hangi katmana ait kodu çalýþtýracaðýmýz Katman içindeki bir tip üzerinden belirledik.
+  config.RegisterServicesFromAssemblyContaining<TicketAssignedEvent>();
 });
 
 

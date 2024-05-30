@@ -1,10 +1,8 @@
-﻿using MediatR;
+﻿using ApplicationLayer;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SolidTicketAPI.Dtos;
-using SolidTicketAPI.Dtos.Employee;
-using SolidTicketAPI.Entities;
-using SolidTicketAPI.Services;
+
 
 namespace SolidTicketAPI.Controllers
 {
@@ -23,26 +21,6 @@ namespace SolidTicketAPI.Controllers
       this.mediator = mediator;
       this.employeeAssignTicketService = employeeAssignTicketService;
       // this.mediator = new Mediator()
-    }
-
-    [HttpGet]
-    public IActionResult Test()
-    {
-      //Ticket ticket = Ticket.Create("Ticket-1");
-      //Employee employee = Employee.Create("Ali", "Can");
-      //employee.AssignTicket(ticket, 15, 200); // Haftalık Ticket
-      //// Kod blogundan sonraki kısımda event tüketme yapacağız.
-
-      //// Employee Service
-      //var @events =  employee.Events;
-      //foreach (var @event in @events)
-      //{
-      //  this.mediator.Publish(@event); // Eventleri yayınlayacağız.
-      //  // EventHandler tetiklenecek
-      //}
-
-      return Ok();
-
     }
 
     [HttpPost]
