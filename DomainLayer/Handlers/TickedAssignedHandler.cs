@@ -9,9 +9,9 @@ namespace DomainLayer
   {
     // Event fırlatıktan sonra burada notification olarak gelen event bilgileri işlenecek
     // OOP bazlı Event Driven Development yapmış oluyoruz.
-    public Task Handle(TicketAssignedEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(TicketAssignedEvent notification, CancellationToken cancellationToken)
     {
-      throw new NotImplementedException();
+      await Task.CompletedTask;
     }
   }
 }

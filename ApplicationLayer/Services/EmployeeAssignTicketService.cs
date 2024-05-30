@@ -33,12 +33,6 @@ namespace ApplicationLayer
       // Application Request Bussiness Layer işlenmesi için gönderdik.
       this.ticketAssigmentManager.OnProcess(props, ticket, employee);
 
-      var @events = employee.Events;
-      foreach (var @event in @events)
-      {
-        this.mediator.Publish(@event); // Eventleri yayınlayacağız.
-        // EventHandler tetiklenecek
-      }
     }
   }
 }

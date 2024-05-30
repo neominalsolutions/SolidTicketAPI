@@ -1,4 +1,5 @@
 ﻿using DomainLayer;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
@@ -14,7 +15,7 @@ namespace DomainLayer
   {
     // private IRepo<AssignedTicket> _repo;
     private IServiceProvider _serviceProvider; // service locator ile IoC üzerinden nesnenin instance okuma işlemi
-
+    private IMediator mediator;
     /*
     public TicketAssigmentManager(IRepo<AssignedTicket> repo, )
     {
@@ -24,9 +25,10 @@ namespace DomainLayer
 
     */
 
-    public TicketAssigmentManager(IServiceProvider serviceProvider)
+    public TicketAssigmentManager(IServiceProvider serviceProvider, IMediator mediator)
     {
       _serviceProvider = serviceProvider;
+      this.mediator = mediator;
 
     }
 
@@ -56,7 +58,20 @@ namespace DomainLayer
         if (assigment is not null)
         {
           assigment.Assign(employee, ticket, props.PlanningHour);
-        }
+
+
+
+        //// 1. Teknik Eventleri nesne üzerine ekleyerek çoklu olarak publish etme tekniği
+        //var @events = employee.Events;
+        //foreach (var @event in @events)
+        //{
+        //  this.mediator.Publish(@event); // Eventleri yayınlayacağız.
+        //  // EventHandler tetiklenecek
+        //}
+
+        // 2. Teknik
+        this.mediator.Publish(new TicketAssignedEvent(employee.Id, ticket.Id,props.PlanningHour));
+      }
         else
         {
           throw new Exception("Görev atama tipi uygun değil. Saatleri ve Plan tipini doğru seçmelisiniz. ");

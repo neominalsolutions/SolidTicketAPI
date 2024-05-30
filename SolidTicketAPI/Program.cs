@@ -1,4 +1,5 @@
 using ApplicationLayer;
+using ApplicationLayer.Features.Employees;
 using DomainLayer;
 using DomainLayer.Repositories;
 using InfrastrastureLayer;
@@ -29,6 +30,7 @@ builder.Services.AddMediatR(config =>
   //config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
   // Katmanlara ayýrdýðýmýzdan Hangi katmana ait kodu çalýþtýracaðýmýz Katman içindeki bir tip üzerinden belirledik.
   config.RegisterServicesFromAssemblyContaining<TicketAssignedEvent>();
+  config.RegisterServicesFromAssemblyContaining<EmployeeAssignTicketCommandHandler>();
 });
 
 
